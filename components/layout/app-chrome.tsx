@@ -157,7 +157,7 @@ function SiteHeader({ onOpenHistory }: { onOpenHistory: () => void }) {
         </button>
 
         {/* Center — Visit counter (loads async, hidden until ready) */}
-        <div className="pointer-events-none absolute inset-x-0 flex justify-center">
+        <div className="pointer-events-none absolute inset-x-0 hidden justify-center md:flex">
           <VisitCount />
         </div>
 
