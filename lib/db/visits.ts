@@ -25,7 +25,7 @@ async function ensureTableExists() {
 }
 
 // Cached read — revalidates every 300s
-export const getVisitCount = unstable_cache(
+const getVisitCountCached = unstable_cache(
   async () => {
     try {
       await ensureTableExists();
@@ -38,6 +38,10 @@ export const getVisitCount = unstable_cache(
   ["visit-count"],
   { revalidate: 300 }
 );
+
+export async function getVisitCount() {
+  return getVisitCountCached();
+}
 
 // Server Action — called from client on mount
 export async function recordVisit() {
