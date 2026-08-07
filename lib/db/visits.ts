@@ -1,7 +1,7 @@
 "use server";
 
 import { eq, sql } from "drizzle-orm";
-import { unstable_cache } from "next/cache";
+import { revalidateTag, unstable_cache } from "next/cache";
 import { cookies } from "next/headers";
 import { db } from "@/lib/db";
 import { stats } from "@/lib/db/schema";
@@ -69,6 +69,7 @@ export async function recordVisit() {
         target: stats.key,
         set: { value: sql`${stats.value} + 1` },
       });
+    revalidateTag("visit-count");
   } catch {
     /* silent fallback if DB offline */
   }

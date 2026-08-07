@@ -9,13 +9,21 @@ export function VisitCount() {
 
   useEffect(() => {
     let active = true;
-    getVisitCount()
-      .then((val) => {
-        if (active && val !== null) setCount(val);
-      })
-      .catch(console.error);
+
+    const fetchCount = () => {
+      getVisitCount()
+        .then((val) => {
+          if (active && val !== null) setCount(val);
+        })
+        .catch(console.error);
+    };
+
+    fetchCount();
+    const interval = setInterval(fetchCount, 15000);
+
     return () => {
       active = false;
+      clearInterval(interval);
     };
   }, []);
 
