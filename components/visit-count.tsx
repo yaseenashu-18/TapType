@@ -26,12 +26,12 @@ export function VisitCount() {
   }
 
   return (
-    <span className="text-muted-foreground font-medium text-base md:text-lg">
+    <span className="text-muted-foreground text-sm md:text-lg">
       <AnimatedNumber
-        className="font-semibold text-foreground tabular-nums"
+        className="text-foreground tabular-nums"
         value={count}
       />{" "}
-      thocks and counting
+      <span className="hidden md:inline">thocks and </span>counting
     </span>
   );
 }

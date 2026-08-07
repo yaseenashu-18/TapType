@@ -145,7 +145,7 @@ function SiteHeader({ onOpenHistory }: { onOpenHistory: () => void }) {
       onMouseMove={handleHeaderMouseMove}
       transition={{ duration: 0.4, ease: "easeInOut" }}
     >
-      <div className="relative flex w-full max-w-5xl flex-wrap items-center justify-between">
+      <div className="relative flex w-full max-w-5xl items-center justify-between">
         {/* Left — Brand Name */}
         <button
           aria-label="TapType Home"
@@ -157,7 +157,7 @@ function SiteHeader({ onOpenHistory }: { onOpenHistory: () => void }) {
         </button>
 
         {/* Center — Visit counter */}
-        <div className="pointer-events-none order-last mt-2 flex w-full justify-center md:absolute md:inset-x-0 md:order-none md:mt-0 md:w-auto">
+        <div className="pointer-events-none absolute inset-x-0 flex justify-center">
           <VisitCount />
         </div>
 
