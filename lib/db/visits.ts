@@ -69,7 +69,7 @@ export async function recordVisit() {
         target: stats.key,
         set: { value: sql`${stats.value} + 1` },
       });
-    revalidateTag("visit-count");
+    revalidateTag("visit-count", "default");
   } catch {
     /* silent fallback if DB offline */
   }
