@@ -11,14 +11,11 @@ export function VisitCount() {
     let active = true;
     getVisitCount()
       .then((val) => {
-        if (active) {
-          setCount(val ?? 0);
+        if (active && val !== null) {
+          setCount(val);
         }
       })
-      .catch((err) => {
-        console.error(err);
-        if (active) setCount(0);
-      });
+      .catch(console.error);
     return () => {
       active = false;
     };
