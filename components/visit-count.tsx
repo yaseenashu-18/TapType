@@ -5,13 +5,13 @@ import { AnimatedNumber } from "@/components/ui/animated-number";
 import { getVisitCount } from "@/lib/db/visits";
 
 export function VisitCount() {
-  const [count, setCount] = useState<number | null>(null);
+  const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
     let active = true;
     getVisitCount()
       .then((val) => {
-        if (active) {
+        if (active && val !== null) {
           setCount(val);
         }
       })
@@ -20,10 +20,6 @@ export function VisitCount() {
       active = false;
     };
   }, []);
-
-  if (count === null) {
-    return null;
-  }
 
   return (
     <span className="text-muted-foreground/50 text-base md:text-lg">
