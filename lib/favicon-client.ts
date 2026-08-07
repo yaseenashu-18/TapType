@@ -11,21 +11,12 @@ function buildFaviconHref(
 
   const svg =
     `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">` +
-    // outer shadow
-    `<rect x="1" y="3" width="30" height="28" rx="5" fill="#000" fill-opacity="0.12"/>` +
-    // housing plate
+    `<rect x="1" y="3" width="30" height="28" rx="5" fill="#000" fill-opacity="0.15"/>` +
     `<rect x="1" y="1" width="30" height="28" rx="5" fill="${pl}"/>` +
-    // keycap faces: accent / light / light / dark
-    `<rect x="3" y="3" width="12" height="10.5" rx="2.5" fill="${a}"/>` +
-    `<rect x="17" y="3" width="12" height="10.5" rx="2.5" fill="${l}"/>` +
-    `<rect x="3" y="15.5" width="12" height="10.5" rx="2.5" fill="${l}"/>` +
-    `<rect x="17" y="15.5" width="12" height="10.5" rx="2.5" fill="${d}"/>` +
-    // specular highlights
-    `<rect x="4.5" y="3.5" width="9" height="3" rx="1.5" fill="#fff" fill-opacity="0.28"/>` +
-    `<rect x="18.5" y="3.5" width="9" height="3" rx="1.5" fill="#fff" fill-opacity="0.2"/>` +
-    `<rect x="4.5" y="16" width="9" height="3" rx="1.5" fill="#fff" fill-opacity="0.2"/>` +
-    `<rect x="18.5" y="16" width="9" height="3" rx="1.5" fill="#fff" fill-opacity="0.12"/>` +
-    "</svg>";
+    `<rect x="3" y="3" width="26" height="23" rx="4" fill="${a}"/>` +
+    `<rect x="5" y="4.5" width="22" height="4" rx="2" fill="#fff" fill-opacity="0.25"/>` +
+    `<text x="16" y="20.5" font-family="sans-serif" font-size="16" font-weight="900" fill="${l}" text-anchor="middle">T</text>` +
+    `</svg>`;
 
   return `data:image/svg+xml;base64,${globalThis.btoa(svg)}`;
 }

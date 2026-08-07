@@ -1,6 +1,6 @@
 "use client";
 
-import { Clock, Mountains, Quotes, TextAa } from "@phosphor-icons/react";
+import { Clock, Quotes, TextAa } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
 import type { QuoteLength } from "@/lib/quotes";
@@ -11,7 +11,6 @@ export const MODES = [
   { value: "time", icon: Clock, label: "time" },
   { value: "words", icon: TextAa, label: "words" },
   { value: "quote", icon: Quotes, label: "quote" },
-  { value: "zen", icon: Mountains, label: "zen" },
 ] as const;
 
 export const pillEase = { duration: 0.2, ease: [0.23, 1, 0.32, 1] } as const;
@@ -184,7 +183,7 @@ export function SubOptionStack({
 }) {
   return (
     <>
-      {(["time", "words", "quote", "zen"] as const).map((m) => {
+      {(["time", "words", "quote"] as const).map((m) => {
         const isActive = mode === m;
         return (
           <div
@@ -197,21 +196,15 @@ export function SubOptionStack({
             )}
             key={m}
           >
-            {m === "zen" ? (
-              <span className="px-4 py-1.5 text-[10px] text-muted-foreground/20 italic tracking-widest">
-                free flow
-              </span>
-            ) : (
-              <SubOptions
-                mode={m}
-                onQuoteLengthChange={onQuoteLengthChange}
-                onTimeOptionChange={onTimeOptionChange}
-                onWordOptionChange={onWordOptionChange}
-                quoteLength={quoteLength}
-                timeOption={timeOption}
-                wordOption={wordOption}
-              />
-            )}
+            <SubOptions
+              mode={m}
+              onQuoteLengthChange={onQuoteLengthChange}
+              onTimeOptionChange={onTimeOptionChange}
+              onWordOptionChange={onWordOptionChange}
+              quoteLength={quoteLength}
+              timeOption={timeOption}
+              wordOption={wordOption}
+            />
           </div>
         );
       })}

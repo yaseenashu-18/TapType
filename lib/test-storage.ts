@@ -1,7 +1,7 @@
 import type { QuoteLength } from "@/lib/quotes";
 import type { Difficulty } from "@/lib/words";
 
-export type TestMode = "time" | "words" | "quote" | "zen";
+export type TestMode = "time" | "words" | "quote";
 export type TimeOption = 15 | 30 | 60 | 120;
 export type WordOption = 10 | 25 | 50 | 100;
 
@@ -13,7 +13,7 @@ export const PUNCTUATION_STORAGE_KEY = "tc-punctuation";
 export const NUMBERS_STORAGE_KEY = "tc-numbers";
 export const DIFFICULTY_STORAGE_KEY = "tc-difficulty";
 
-const VALID_TEST_MODES: readonly TestMode[] = ["time", "words", "quote", "zen"];
+const VALID_TEST_MODES: readonly TestMode[] = ["time", "words", "quote"];
 const VALID_TIME_OPTIONS: readonly TimeOption[] = [15, 30, 60, 120];
 const VALID_WORD_OPTIONS: readonly WordOption[] = [10, 25, 50, 100];
 const VALID_QUOTE_LENGTHS: readonly QuoteLength[] = ["short", "medium", "long"];

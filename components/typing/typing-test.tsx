@@ -20,7 +20,7 @@ interface TypingTestProps {
 
 // biome-ignore lint/complexity/noExcessiveCognitiveComplexity: orchestrator component
 export function TypingTest(props: TypingTestProps) {
-  const { liveStats, faahMode, ghostMode } = useSettings();
+  const { liveStats, faahMode, ghostMode, fontCssFamily } = useSettings();
   const faahAudioRef = useRef<HTMLAudioElement | null>(null);
 
   const onWrongKey = useCallback(() => {
@@ -212,7 +212,7 @@ export function TypingTest(props: TypingTestProps) {
             isActivelyTyping && "is-typing"
           )}
           ref={wordsContainerRef}
-          style={{ fontFamily: "var(--typing-font)" }}
+          style={{ fontFamily: fontCssFamily }}
         >
           <input
             autoCapitalize="none"
@@ -314,35 +314,19 @@ export function TypingTest(props: TypingTestProps) {
       {/* Keyboard shortcuts hint */}
       <motion.div
         animate={{
-          // biome-ignore lint/style/noNestedTernary: readable conditional
-          opacity: mode === "zen" && started ? 1 : controlsVisible ? 1 : 0,
+          opacity: controlsVisible ? 1 : 0,
         }}
         className="flex items-center gap-1.5 text-[11px] text-muted-foreground/50"
         transition={{ duration: 0.4 }}
       >
-        {mode === "zen" && started ? (
-          <>
-            <kbd className="rounded-[4px] bg-foreground/[0.06] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
-              shift
-            </kbd>
-            <span className="text-muted-foreground/30">+</span>
-            <kbd className="rounded-[4px] bg-foreground/[0.06] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
-              enter
-            </kbd>
-            <span className="ml-0.5">end test</span>
-          </>
-        ) : (
-          <>
-            <kbd className="rounded-[4px] bg-foreground/[0.06] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
-              tab
-            </kbd>
-            <span className="text-muted-foreground/30">+</span>
-            <kbd className="rounded-[4px] bg-foreground/[0.06] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
-              enter
-            </kbd>
-            <span className="ml-0.5">restart</span>
-          </>
-        )}
+        <kbd className="rounded-[4px] bg-foreground/[0.06] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+          tab
+        </kbd>
+        <span className="text-muted-foreground/30">+</span>
+        <kbd className="rounded-[4px] bg-foreground/[0.06] px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+          enter
+        </kbd>
+        <span className="ml-0.5">restart</span>
       </motion.div>
     </div>
   );

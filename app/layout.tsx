@@ -21,8 +21,7 @@ const fontMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default:
-      "TapType — Free Typing Test with Mechanical Keyboard Sounds | WPM & Accuracy",
+    default: "TapType",
     template: "%s | TapType",
   },
   description: siteConfig.description,
@@ -56,8 +55,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title:
-      "TapType — Free Typing Test with Mechanical Keyboard Sounds | WPM & Accuracy",
+    title: "TapType",
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
@@ -71,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TapType — Typing Test with Mechanical Keyboard Sounds",
+    title: "TapType",
     description:
       "A satisfying typing test with realistic mechanical keyboard sounds. Track your WPM and accuracy in real-time.",
     images: ["/og.jpeg"],

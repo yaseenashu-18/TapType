@@ -57,30 +57,17 @@ export default function Page() {
       </main>
 
       {!isFinished && (
-        <footer className="flex flex-col items-center justify-center pt-2 pb-6">
-          <div className="pointer-events-none invisible h-0 overflow-hidden border-0">
-            <Keyboard
-              enableHaptics
-              enableSound={soundEnabled}
-              forceActive={soundEnabled}
-              physicalKeysEnabled={typingFocused}
-              soundPack={soundPack}
-              theme={accent}
-              volume={soundVolume}
-            />
-          </div>
-          <p className="text-center text-muted-foreground/40 text-xs">
-            Built by{" "}
-            <a
-              className="font-medium text-muted-foreground/60 underline-offset-2 hover:text-foreground hover:underline"
-              href="https://github.com/yaseenashu-18"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              yaseenashu-18
-            </a>
-          </p>
-        </footer>
+        <div className="pointer-events-none invisible h-0 overflow-hidden border-0">
+          <Keyboard
+            enableHaptics
+            enableSound={soundEnabled}
+            forceActive={soundEnabled}
+            physicalKeysEnabled={true}
+            soundPack={soundPack}
+            theme={accent}
+            volume={soundVolume}
+          />
+        </div>
       )}
     </div>
   );

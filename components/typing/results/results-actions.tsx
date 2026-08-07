@@ -264,7 +264,7 @@ export function CalculationFormulaPopover() {
       >
         <div className="space-y-4">
           <FormulaItem
-            description="Only fully correct words and their spaces count. In time and zen modes, a correct prefix of the current word is included before you press space."
+            description="Only fully correct words and their spaces count. In time mode, a correct prefix of the current word is included before you press space."
             formula="(correct chars + spaces) / 5 / minutes"
             label="WPM"
           />

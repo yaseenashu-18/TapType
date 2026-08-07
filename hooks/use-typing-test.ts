@@ -464,9 +464,6 @@ export function useTypingTest({
       }
       if (e.key === "Enter" && e.shiftKey) {
         e.preventDefault();
-        if (mode === "zen" && started && !finished) {
-          finishTest();
-        }
         return;
       }
 
@@ -618,8 +615,7 @@ export function useTypingTest({
         if (
           isLastWord &&
           nextTyped.length >= currentWord.length &&
-          mode !== "time" &&
-          mode !== "zen"
+          mode !== "time"
         ) {
           for (
             let i = 0;

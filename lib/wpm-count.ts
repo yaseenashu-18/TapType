@@ -1,4 +1,4 @@
-export type WpmCountMode = "time" | "words" | "quote" | "zen";
+export type WpmCountMode = "time" | "words" | "quote";
 
 export interface WpmCounts {
   allCorrectChars: number;
@@ -36,7 +36,7 @@ export function countWpm({
   let missedChars = 0;
   let correctSpaces = 0;
 
-  const isTimedTest = mode === "time" || mode === "zen";
+  const isTimedTest = mode === "time";
   const shouldCountPartialLastWord = !final || (final && isTimedTest);
 
   for (let i = 0; i < inputWords.length; i++) {

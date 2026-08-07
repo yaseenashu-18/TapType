@@ -88,7 +88,7 @@ export function MobileToolbar({
     if (mode === "quote") {
       return quoteLength;
     }
-    return "zen";
+    return "";
   }
   const subLabel = getSubLabel();
 
@@ -170,50 +170,48 @@ export function MobileToolbar({
             </DrawerSection>
 
             {/* Sub-options */}
-            {mode !== "zen" && (
-              <DrawerSection
-                title={
-                  mode === "time"
-                    ? "Duration"
-                    : mode === "words"
-                      ? "Word count"
-                      : "Length"
-                }
-              >
-                <div className="flex flex-wrap gap-1.5">
-                  {mode === "time" &&
-                    ([15, 30, 60, 120] as const).map((t) => (
-                      <DrawerChip
-                        active={timeOption === t}
-                        key={t}
-                        onClick={() => onTimeOptionChange(t)}
-                      >
-                        {t}s
-                      </DrawerChip>
-                    ))}
-                  {mode === "words" &&
-                    ([10, 25, 50, 100] as const).map((w) => (
-                      <DrawerChip
-                        active={wordOption === w}
-                        key={w}
-                        onClick={() => onWordOptionChange(w)}
-                      >
-                        {w}
-                      </DrawerChip>
-                    ))}
-                  {mode === "quote" &&
-                    (["short", "medium", "long"] as const).map((q) => (
-                      <DrawerChip
-                        active={quoteLength === q}
-                        key={q}
-                        onClick={() => onQuoteLengthChange(q)}
-                      >
-                        {q}
-                      </DrawerChip>
-                    ))}
-                </div>
-              </DrawerSection>
-            )}
+            <DrawerSection
+              title={
+                mode === "time"
+                  ? "Duration"
+                  : mode === "words"
+                    ? "Word count"
+                    : "Length"
+              }
+            >
+              <div className="flex flex-wrap gap-1.5">
+                {mode === "time" &&
+                  ([15, 30, 60, 120] as const).map((t) => (
+                    <DrawerChip
+                      active={timeOption === t}
+                      key={t}
+                      onClick={() => onTimeOptionChange(t)}
+                    >
+                      {t}s
+                    </DrawerChip>
+                  ))}
+                {mode === "words" &&
+                  ([10, 25, 50, 100] as const).map((w) => (
+                    <DrawerChip
+                      active={wordOption === w}
+                      key={w}
+                      onClick={() => onWordOptionChange(w)}
+                    >
+                      {w}
+                    </DrawerChip>
+                  ))}
+                {mode === "quote" &&
+                  (["short", "medium", "long"] as const).map((q) => (
+                    <DrawerChip
+                      active={quoteLength === q}
+                      key={q}
+                      onClick={() => onQuoteLengthChange(q)}
+                    >
+                      {q}
+                    </DrawerChip>
+                  ))}
+              </div>
+            </DrawerSection>
 
             {/* Modifiers */}
             <DrawerSection title="Modifiers">

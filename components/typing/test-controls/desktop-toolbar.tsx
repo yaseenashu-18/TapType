@@ -77,8 +77,7 @@ export function DesktopToolbar({
         <div
           className={cn(
             groupClass,
-            "relative grid transition-opacity duration-200 [&>*]:col-start-1 [&>*]:row-start-1",
-            mode === "zen" && "pointer-events-none opacity-0"
+            "relative grid transition-opacity duration-200 [&>*]:col-start-1 [&>*]:row-start-1"
           )}
         >
           <SubOptionStack

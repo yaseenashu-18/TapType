@@ -19,14 +19,10 @@
   <rect class="sh" x="1" y="3" width="30" height="28" rx="5"/>
   <!-- Housing plate -->
   <rect class="plate" x="1" y="1" width="30" height="28" rx="5"/>
-  <!-- Keycap faces: accent / light / light / dark -->
-  <rect class="accent" x="3" y="3" width="12" height="10.5" rx="2.5"/>
-  <rect class="light" x="17" y="3" width="12" height="10.5" rx="2.5"/>
-  <rect class="light" x="3" y="15.5" width="12" height="10.5" rx="2.5"/>
-  <rect class="dark" x="17" y="15.5" width="12" height="10.5" rx="2.5"/>
-  <!-- Specular highlights -->
-  <rect class="hi" x="4.5" y="3.5" width="9" height="3" rx="1.5" opacity="0.28"/>
-  <rect class="hi" x="18.5" y="3.5" width="9" height="3" rx="1.5" opacity="0.2"/>
-  <rect class="hi" x="4.5" y="16" width="9" height="3" rx="1.5" opacity="0.2"/>
-  <rect class="hi" x="18.5" y="16" width="9" height="3" rx="1.5" opacity="0.12"/>
+  <!-- Keycap face -->
+  <rect class="accent" x="3" y="3" width="26" height="23" rx="4"/>
+  <!-- Specular highlight -->
+  <rect class="hi" x="5" y="4.5" width="22" height="4" rx="2" opacity="0.25"/>
+  <!-- Text -->
+  <text class="light" x="16" y="20.5" font-family="sans-serif" font-size="16" font-weight="900" text-anchor="middle">T</text>
 </svg>

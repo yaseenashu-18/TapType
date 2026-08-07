@@ -13,7 +13,7 @@
 
 ## ✨ Features
 
-| Area | Features |
+| Area | Features |re
 |------|----------|
 | **Test Modes** | Time (15s–120s), Word Count (10–100), Quotes |
 | **Mechanical Sound Engine** | 6 Switch Profiles via Web Audio API (Linear, Clicky, Thock, Creamy, Typewriter, Cyberpunk) |
@@ -41,8 +41,8 @@
    npm run dev
    ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+3. Open (http://localhost:3005) in your browser.
 
 ## 📃 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open source and available under the (MIT License).
