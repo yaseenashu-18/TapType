@@ -8,6 +8,7 @@ import { stats } from "@/lib/db/schema";
 
 const KEY = "total_visits";
 const COOKIE_NAME = "kz-visit";
+const THROTTLE_SECONDS = 120;
 let tableInitialized = false;
 
 async function ensureTableExists() {
