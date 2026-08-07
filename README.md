@@ -5,6 +5,9 @@
   <p align="center">
     A free, minimalist typing speed test with realistic mechanical key sounds, customizable switch sound profiles, and live WPM analytics.
   </p>
+  <p align="center">
+    <strong><a href="https://taptype.vercel.app/">Live Demo</a></strong>
+  </p>
 </p>
 
 ## About
@@ -13,7 +16,7 @@
 
 ## ✨ Features
 
-| Area | Features |re
+| Area | Features |
 |------|----------|
 | **Test Modes** | Time (15s–120s), Word Count (10–100), Quotes |
 | **Mechanical Sound Engine** | 6 Switch Profiles via Web Audio API (Linear, Clicky, Thock, Creamy, Typewriter, Cyberpunk) |
