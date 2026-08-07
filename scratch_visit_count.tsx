@@ -8,15 +8,7 @@ export function VisitCount() {
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
-    let active = true;
-    getVisitCount()
-      .then((val) => {
-        if (active) setCount(val);
-      })
-      .catch(console.error);
-    return () => {
-      active = false;
-    };
+    getVisitCount().then(setCount).catch(console.error);
   }, []);
 
   if (count === null) {
@@ -24,12 +16,12 @@ export function VisitCount() {
   }
 
   return (
-    <span className="text-muted-foreground text-sm md:text-lg">
+    <span className="text-muted-foreground/60 text-xs">
       <AnimatedNumber
-        className="text-foreground tabular-nums"
+        className="font-medium text-muted-foreground tabular-nums"
         value={count}
       />{" "}
-      <span className="hidden md:inline">thocks and </span>counting
+      thocks and counting
     </span>
   );
 }
