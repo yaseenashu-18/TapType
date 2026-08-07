@@ -22,9 +22,9 @@ export function VisitCount() {
   }, []);
 
   return (
-    <span className="text-muted-foreground/50 text-base md:text-lg">
+    <span className="text-muted-foreground font-medium text-base md:text-lg">
       <AnimatedNumber
-        className="font-medium text-foreground tabular-nums"
+        className="font-semibold text-foreground tabular-nums"
         value={count}
       />{" "}
       thocks and counting
