@@ -20,7 +20,7 @@ function pickWithoutReplacement(pool: string[], count: number): string[] {
 
   while (out.length < count) {
     if (i >= deck.length) {
-      const prev = out[out.length - 1];
+      const prev = out.at(-1);
       deck = [...unique];
       shuffleInPlace(deck);
       i = 0;

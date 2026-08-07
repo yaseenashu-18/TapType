@@ -32,7 +32,7 @@ export function DynamicFavicon() {
       clearTimeout(t1);
       clearTimeout(t2);
     };
-  }, [mounted, resolvedTheme]);
+  }, [mounted]);
 
   return null;
 }

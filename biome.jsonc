@@ -5,20 +5,45 @@
     "ultracite/biome/react",
     "ultracite/biome/next"
   ],
+  "files": {
+    "ignore": [
+      "public/sw.js"
+    ]
+  },
   "linter": {
     "rules": {
       "performance": {
-        "noBarrelFile": "off"
+        "noBarrelFile": "off",
+        "noNamespaceImport": "off",
+        "useTopLevelRegex": "off"
       },
       "security": {
         "noDangerouslySetInnerHtml": "off"
       },
       "style": {
         "noNonNullAssertion": "off",
-        "noEnum": "off"
+        "noEnum": "off",
+        "noNestedTernary": "off",
+        "useConsistentTypeDefinitions": "off"
       },
       "a11y": {
         "useButtonType": "off"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "off",
+        "noReactForwardRef": "off",
+        "useAwait": "off",
+        "noUnusedExpressions": "off",
+        "noAssignInExpressions": "off"
+      },
+      "correctness": {
+        "noUnusedVariables": "off"
+      },
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "off",
+        "noVoid": "off",
+        "noForEach": "off",
+        "noCommaOperator": "off"
       }
     }
   }

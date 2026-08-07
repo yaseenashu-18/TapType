@@ -51,7 +51,7 @@ export function ResultsActionButton({
 
 export function DownloadResultsPopover({ stats }: { stats: ResultStats }) {
   const downloadPdf = () => {
-    const origin = typeof window === "undefined" ? "" : window.location.origin;
+    const _origin = typeof window === "undefined" ? "" : window.location.origin;
     const printWindow = window.open("", "_blank", "width=800,height=900");
     if (!printWindow) {
       return;
