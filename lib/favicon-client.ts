@@ -16,7 +16,7 @@ function buildFaviconHref(
     `<rect x="3" y="3" width="26" height="23" rx="4" fill="${a}"/>` +
     `<rect x="5" y="4.5" width="22" height="4" rx="2" fill="#fff" fill-opacity="0.25"/>` +
     `<text x="16" y="20.5" font-family="sans-serif" font-size="16" font-weight="900" fill="${l}" text-anchor="middle">T</text>` +
-    `</svg>`;
+    "</svg>";
 
   return `data:image/svg+xml;base64,${globalThis.btoa(svg)}`;
 }

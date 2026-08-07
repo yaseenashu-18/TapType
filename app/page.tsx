@@ -69,6 +69,18 @@ export default function Page() {
           />
         </div>
       )}
+
+      <footer className="mt-auto py-6 text-center text-sm text-muted-foreground">
+        Built by{" "}
+        <a
+          href="https://github.com/yaseenashu-18"
+          target="_blank"
+          rel="noreferrer"
+          className="underline transition-colors hover:text-foreground"
+        >
+          yaseenashu-18
+        </a>
+      </footer>
     </div>
   );
 }
