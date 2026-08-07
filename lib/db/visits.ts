@@ -8,13 +8,32 @@ import { stats } from "@/lib/db/schema";
 
 const KEY = "total_visits";
 const COOKIE_NAME = "kz-visit";
-const THROTTLE_SECONDS = 120;
+let tableInitialized = false;
+
+async function ensureTableExists() {
+  if (tableInitialized) {
+    return;
+  }
+  try {
+    await db.run(
+      sql`CREATE TABLE IF NOT EXISTS stats (key TEXT PRIMARY KEY, value INTEGER NOT NULL DEFAULT 0)`
+    );
+    tableInitialized = true;
+  } catch {
+    /* ignore fallback */
+  }
+}
 
 // Cached read — revalidates every 300s
 export const getVisitCount = unstable_cache(
   async () => {
-    const row = await db.select().from(stats).where(eq(stats.key, KEY)).get();
-    return row?.value ?? 0;
+    try {
+      await ensureTableExists();
+      const row = await db.select().from(stats).where(eq(stats.key, KEY)).get();
+      return row?.value ?? 0;
+    } catch {
+      return 0;
+    }
   },
   ["visit-count"],
   { revalidate: 300 }
@@ -22,25 +41,30 @@ export const getVisitCount = unstable_cache(
 
 // Server Action — called from client on mount
 export async function recordVisit() {
-  const cookieStore = await cookies();
-  const visited = cookieStore.get(COOKIE_NAME);
+  try {
+    await ensureTableExists();
+    const cookieStore = await cookies();
+    const visited = cookieStore.get(COOKIE_NAME);
 
-  if (visited) {
-    return;
-  }
+    if (visited) {
+      return;
+    }
 
-  cookieStore.set(COOKIE_NAME, "1", {
-    maxAge: THROTTLE_SECONDS,
-    httpOnly: true,
-    sameSite: "lax",
-    path: "/",
-  });
-
-  await db
-    .insert(stats)
-    .values({ key: KEY, value: 1 })
-    .onConflictDoUpdate({
-      target: stats.key,
-      set: { value: sql`${stats.value} + 1` },
+    cookieStore.set(COOKIE_NAME, "1", {
+      maxAge: THROTTLE_SECONDS,
+      httpOnly: true,
+      sameSite: "lax",
+      path: "/",
     });
+
+    await db
+      .insert(stats)
+      .values({ key: KEY, value: 1 })
+      .onConflictDoUpdate({
+        target: stats.key,
+        set: { value: sql`${stats.value} + 1` },
+      });
+  } catch {
+    /* silent fallback if DB offline */
+  }
 }
