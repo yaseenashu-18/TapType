@@ -11,9 +11,7 @@ export function VisitCount() {
     let active = true;
     getVisitCount()
       .then((val) => {
-        if (active && val !== null) {
-          setCount(val);
-        }
+        if (active && val !== null) setCount(val);
       })
       .catch(console.error);
     return () => {
@@ -23,7 +21,10 @@ export function VisitCount() {
 
   return (
     <span className="text-muted-foreground text-sm md:text-lg">
-      <AnimatedNumber className="text-foreground tabular-nums" value={count} />{" "}
+      <AnimatedNumber
+        className="text-foreground tabular-nums"
+        value={count}
+      />{" "}
       <span className="hidden md:inline">thocks and </span>counting
     </span>
   );

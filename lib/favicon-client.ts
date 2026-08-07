@@ -5,7 +5,7 @@ function buildFaviconHref(
   plate: string
 ): string {
   const a = accent.replace(/"/g, "'");
-  const _d = kbDark.replace(/"/g, "'");
+  const d = kbDark.replace(/"/g, "'");
   const l = kbLight.replace(/"/g, "'");
   const pl = plate.replace(/"/g, "'");
 

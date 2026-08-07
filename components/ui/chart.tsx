@@ -23,9 +23,9 @@ export type ChartConfig = Record<
   )
 >;
 
-interface ChartContextProps {
+type ChartContextProps = {
   config: ChartConfig;
-}
+};
 
 const ChartContext = React.createContext<ChartContextProps | null>(null);
 

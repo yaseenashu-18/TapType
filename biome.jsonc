@@ -5,10 +5,10 @@
     "ultracite/biome/react",
     "ultracite/biome/next"
   ],
-  "files": {
-    "ignore": [
-      "public/sw.js"
-    ]
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
   },
   "linter": {
     "rules": {

@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 export default function Page() {
   const { settingsOpen, setTypingActive, homeLogoHandlerRef } = useAppChrome();
   const [isFinished, setIsFinished] = useState(false);
-  const [_typingFocused, setTypingFocused] = useState(true);
+  const [typingFocused, setTypingFocused] = useState(true);
   const [restartKey, setRestartKey] = useState(0);
   const { showKeyboard, soundEnabled, soundVolume, soundPack, accent } =
     useSettings();
@@ -70,13 +70,13 @@ export default function Page() {
         </div>
       )}
 
-      <footer className="mt-auto py-6 text-center text-muted-foreground text-sm">
+      <footer className="mt-auto py-6 text-center text-sm text-muted-foreground">
         Built by{" "}
         <a
-          className="underline transition-colors hover:text-foreground"
           href="https://github.com/yaseenashu-18"
-          rel="noreferrer"
           target="_blank"
+          rel="noreferrer"
+          className="underline transition-colors hover:text-foreground"
         >
           yaseenashu-18
         </a>

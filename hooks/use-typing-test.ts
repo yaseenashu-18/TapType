@@ -329,16 +329,7 @@ export function useTypingTest({
     }
     inputRef.current?.focus();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    quoteLength,
-    wordOption,
-    punctuation,
-    difficulty,
-    timeOption,
-    numbers,
-    mode,
-    buildWords,
-  ]);
+  }, []);
 
   // ── Helper callbacks ─────────────────────────────────────────────────────
   const markTypingActive = useCallback(() => {

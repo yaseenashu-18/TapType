@@ -10,6 +10,7 @@ import type React from "react";
 import type { ReactNode } from "react";
 import {
   createContext,
+  forwardRef,
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -17,9 +18,9 @@ import {
   useRef,
 } from "react";
 
-interface Api {
+type Api = {
   fire: (options?: ConfettiOptions) => void;
-}
+};
 
 type Props = React.ComponentPropsWithRef<"canvas"> & {
   options?: ConfettiOptions;
@@ -33,10 +34,7 @@ export type ConfettiRef = Api | null;
 const ConfettiContext = createContext<Api>({} as Api);
 
 // Define component first
-const ConfettiComponent = ({
-  ref,
-  ...props
-}: Props & { ref?: React.RefObject<ConfettiRef | null> }) => {
+const ConfettiComponent = forwardRef<ConfettiRef, Props>((props, ref) => {
   const {
     options,
     globalOptions = { resize: true, useWorker: true },
@@ -104,7 +102,7 @@ const ConfettiComponent = ({
       {children}
     </ConfettiContext.Provider>
   );
-};
+});
 
 // Set display name immediately
 ConfettiComponent.displayName = "Confetti";

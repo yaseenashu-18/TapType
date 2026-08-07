@@ -282,7 +282,7 @@ export function KeyboardProvider({
 
       return true;
     },
-    [emitKeyEvent, playSound, triggerPointerHaptic]
+    [emitKeyEvent, playSound]
   );
 
   const releaseKey = useCallback(

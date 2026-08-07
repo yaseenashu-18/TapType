@@ -157,7 +157,7 @@ export function buildKeyVariantOverrides({
   dark?: KEYCODE[];
   light?: KEYCODE[];
 }): Partial<Record<KEYCODE, KeyVariantSlot>> {
-  const entries: [KEYCODE, KeyVariantSlot][] = [];
+  const entries: Array<[KEYCODE, KeyVariantSlot]> = [];
 
   for (const keyCode of accent) {
     entries.push([keyCode, "accent"]);
